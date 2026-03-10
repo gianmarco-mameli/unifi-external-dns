@@ -7,7 +7,7 @@ In my home K3S clusters, I'm already using this great projects to sync custom DN
 - <https://github.com/kashalls/external-dns-unifi-webhook>
 - <https://github.com/kubernetes-sigs/external-dns>
 
-but, other than my clusters, I also have some single docker nodes for IOT on Raspberry Pi, so, with a little help from Copilot, I decided to build from scratch a little service image to update the DNS Policies on my UDM PRO SE.
+but, other than my clusters, I also have some single docker nodes for IOT on Raspberry Pi, so, with help from Copilot, I decided to build from scratch a little service image to update the DNS Policies on my UDM PRO SE.
 This allows me to completely remove any local dnsmasq on the nodes and manage all my internal dns entry for the services on a single point (the router in that case)
 
 This image specifically sync Unifi DNS policies from Docker container labels and an optional YAML file to a Unifi Controller, via Network API Token
