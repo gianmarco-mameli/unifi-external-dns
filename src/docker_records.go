@@ -22,7 +22,6 @@ func loadDockerRecords(ctx context.Context, cli *client.Client, defaultTTL int) 
 		labels := c.Labels
 		containerNameStr := containerName(c.Names)
 
-		// Try new indexed format first
 		indexedRecords, err := parseIndexedLabels(labels, defaultTTL)
 		if err != nil {
 			return nil, fmt.Errorf("container %s: %w", c.ID, err)
@@ -32,7 +31,6 @@ func loadDockerRecords(ctx context.Context, cli *client.Client, defaultTTL int) 
 		}
 		records = append(records, indexedRecords...)
 
-		// Fall back to legacy single-record format
 		if len(indexedRecords) == 0 {
 			domain := labels[labelDomain]
 			recordType := labels[labelType]
@@ -61,7 +59,6 @@ func loadDockerRecords(ctx context.Context, cli *client.Client, defaultTTL int) 
 }
 
 func parseIndexedLabels(labels map[string]string, defaultTTL int) ([]DNSRecord, error) {
-	// Pattern: unifi.dns.<index>.<field> or unifi.dns.<field> (legacy)
 	re := regexp.MustCompile(`^unifi\.dns\.(\d+)\.(.+)$`)
 
 	indexMap := make(map[string]map[string]string)
@@ -90,14 +87,15 @@ func parseIndexedLabels(labels map[string]string, defaultTTL int) ([]DNSRecord, 
 
 		recordType = strings.ToUpper(recordType)
 		if !strings.HasSuffix(recordType, "_RECORD") {
-			if recordType == "A" {
-				recordType = recordTypeA
-			} else if recordType == "CNAME" {
-				recordType = recordTypeCNAME
-			} else if recordType == "TXT" {
-				recordType = recordTypeTXT
-			} else if recordType == "SRV" {
-				recordType = recordTypeSRV
+			switch recordType {
+				case "A":
+					recordType = recordTypeA
+				case "CNAME":
+					recordType = recordTypeCNAME
+				case "TXT":
+					recordType = recordTypeTXT
+				case "SRV":
+					recordType = recordTypeSRV
 			}
 		}
 

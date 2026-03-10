@@ -85,7 +85,6 @@ func parseDuration(value string, def time.Duration) time.Duration {
 func normalizeRecord(recordType, domain, value string, ttl int) (DNSRecord, error) {
 	recordType = strings.TrimSpace(strings.ToUpper(recordType))
 	if strings.HasSuffix(recordType, "_RECORD") {
-		// already normalized
 	} else if recordType == "A" {
 		recordType = recordTypeA
 	} else if recordType == "CNAME" {

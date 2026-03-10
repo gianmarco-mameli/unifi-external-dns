@@ -2,18 +2,19 @@
 
 ![Contributors](https://img.shields.io/github/contributors/gianmarco-mameli/unifi-external-dns?style=plastic) ![Forks](https://img.shields.io/github/forks/gianmarco-mameli/unifi-external-dns?style=plastic) ![Stargazers](https://img.shields.io/github/stars/gianmarco-mameli/unifi-external-dns?style=plastic) ![Issues](https://img.shields.io/github/issues/gianmarco-mameli/unifi-external-dns?style=plastic) ![License](https://img.shields.io/github/license/gianmarco-mameli/unifi-external-dnsstyle=plastic)
 
-In my home K3S clusters, I'm already using this great projects to sync custom DNS Policies to a Unifi Dream Machine PRO Se router:
+In my home K3S clusters, I'm already using this great projects to sync custom DNS Policies to a Unifi Dream Machine PRO SE router:
 
 - <https://github.com/kashalls/external-dns-unifi-webhook>
 - <https://github.com/kubernetes-sigs/external-dns>
 
-but, other than my clusters, I also have some single docker nodes for IOT on Raspberry Pi, so, with help from Copilot, I decided to build from scratch a little service image to update the DNS Policies on my UDM PRO SE.
+but, other than my clusters, I also have some single docker nodes for IOT on Raspberry Pi, so, with help from Copilot, I decided to build from scratch a little container image to update the DNS Policies on my UDM PRO SE.
 This allows me to completely remove any local dnsmasq on the nodes and manage all my internal dns entry for the services on a single point (the router in that case)
 
-This image specifically sync Unifi DNS policies from Docker container labels and an optional YAML file to a Unifi Controller, via Network API Token
-Also it's implemented a 'owner txt' like that one that uses the original external-dns to keep track of the entries
+This image specifically sync Unifi DNS policies from Docker container labels or an optional YAML file to a Unifi Controller, via Network API Token
+Also it's implemented a 'owner TXT' like the one that uses the original external-dns to keep track of the entries
 
 Docker images are available here <https://hub.docker.com/r/gmmserv/unifi-external-dns>
+The images are based on a Chiseled rootless image, so it contains only the binary app and nothing else, you can't exec in the container or launch anything overwriting the entrypoint
 
 ## Features
 

@@ -133,21 +133,22 @@ func (c *UnifiClient) createDNSPolicy(ctx context.Context, siteID string, record
 		"enabled": true,
 		"domain":  record.Domain,
 	}
-	if record.Type == recordTypeA {
-		payload["ipv4Address"] = record.Value
-		payload["ttlSeconds"] = record.TTL
-	} else if record.Type == recordTypeCNAME {
-		payload["cname"] = record.Value
-		payload["ttlSeconds"] = record.TTL
-	} else if record.Type == recordTypeSRV {
-		payload["serverDomain"] = record.SrvTarget
-		payload["service"] = record.SrvService
-		payload["protocol"] = record.SrvProtocol
-		payload["port"] = record.SrvPort
-		payload["priority"] = record.SrvPriority
-		payload["weight"] = record.SrvWeight
-	} else {
-		payload["text"] = record.Value
+	switch record.Type {
+		case recordTypeA:
+			payload["ipv4Address"] = record.Value
+			payload["ttlSeconds"] = record.TTL
+		case recordTypeCNAME:
+			payload["cname"] = record.Value
+			payload["ttlSeconds"] = record.TTL
+		case recordTypeSRV:
+			payload["serverDomain"] = record.SrvTarget
+			payload["service"] = record.SrvService
+			payload["protocol"] = record.SrvProtocol
+			payload["port"] = record.SrvPort
+			payload["priority"] = record.SrvPriority
+			payload["weight"] = record.SrvWeight
+		default:
+			payload["text"] = record.Value
 	}
 
 	path := fmt.Sprintf("/v1/sites/%s/dns/policies", url.PathEscape(siteID))
@@ -161,21 +162,22 @@ func (c *UnifiClient) updateDNSPolicy(ctx context.Context, siteID, policyID stri
 		"enabled": true,
 		"domain":  record.Domain,
 	}
-	if record.Type == recordTypeA {
-		payload["ipv4Address"] = record.Value
-		payload["ttlSeconds"] = record.TTL
-	} else if record.Type == recordTypeCNAME {
-		payload["cname"] = record.Value
-		payload["ttlSeconds"] = record.TTL
-	} else if record.Type == recordTypeSRV {
-		payload["serverDomain"] = record.SrvTarget
-		payload["service"] = record.SrvService
-		payload["protocol"] = record.SrvProtocol
-		payload["port"] = record.SrvPort
-		payload["priority"] = record.SrvPriority
-		payload["weight"] = record.SrvWeight
-	} else {
-		payload["text"] = record.Value
+	switch record.Type {
+		case recordTypeA:
+			payload["ipv4Address"] = record.Value
+			payload["ttlSeconds"] = record.TTL
+		case recordTypeCNAME:
+			payload["cname"] = record.Value
+			payload["ttlSeconds"] = record.TTL
+		case recordTypeSRV:
+			payload["serverDomain"] = record.SrvTarget
+			payload["service"] = record.SrvService
+			payload["protocol"] = record.SrvProtocol
+			payload["port"] = record.SrvPort
+			payload["priority"] = record.SrvPriority
+			payload["weight"] = record.SrvWeight
+		default:
+			payload["text"] = record.Value
 	}
 
 	path := fmt.Sprintf("/v1/sites/%s/dns/policies/%s", url.PathEscape(siteID), url.PathEscape(policyID))

@@ -124,7 +124,6 @@ func buildTXTRegistryRecords(prefix string, desired map[string]DNSRecord) []DNSR
 		}
 
 		txtDomain := record.Domain
-		// For SRV records, remove underscores to make valid DNS names
 		if record.Type == recordTypeSRV {
 			txtDomain = strings.ReplaceAll(txtDomain, "_", "")
 		}

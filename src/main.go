@@ -11,6 +11,8 @@ import (
 	"github.com/docker/docker/client"
 )
 
+var version = "dev"
+
 func main() {
 	cfg, err := loadConfig()
 	if err != nil {
@@ -30,6 +32,8 @@ func main() {
 	if err != nil {
 		log.Fatalf("site lookup error: %v", err)
 	}
+
+	log.Printf("unifi-external-dns %s started...", version)
 
 	runSync := func() {
 		dockerRecords, err := loadDockerRecords(ctx, dockerClient, cfg.DefaultTTL)

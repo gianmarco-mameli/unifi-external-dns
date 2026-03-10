@@ -40,9 +40,10 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           push: true
+          build-args: |
+            VERSION=${{ env.VERSION }}
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:${{ env.VERSION}},
                 ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:latest
           labels: |
             org.opencontainers.image.source=${{ github.event.repository.html_url }}
-            org.opencontainers.image.created=${{ steps.prep.outputs.created }}
             org.opencontainers.image.revision=${{ github.sha }}
