@@ -153,9 +153,5 @@ Feel free to try it, enhance it and open issues if you find bugs or errors
 
 ## Support
 
-<a href="https://www.buymeacoffee.com/app/gianmarcomameli">
-<img src="https://cdn.simpleicons.org/buymeacoffee" alt="buymeacoffe" height="32" />
-</a>
-<a href="https://ko-fi.com/gianmarcomameli">
-<img src="https://cdn.simpleicons.org/kofi" alt="kofi" height="32"/>
-</a>
+<a href="https://www.buymeacoffee.com/app/gianmarcomameli"><img src="https://cdn.simpleicons.org/buymeacoffee" alt="buymeacoffe" height="32" /></a>
+<a href="https://ko-fi.com/gianmarcomameli"><img src="https://cdn.simpleicons.org/kofi" alt="kofi" height="32"/></a>
