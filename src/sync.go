@@ -125,7 +125,10 @@ func buildTXTRegistryRecords(prefix string, desired map[string]DNSRecord) []DNSR
 
 		txtDomain := record.Domain
 		if record.Type == recordTypeSRV {
-			txtDomain = strings.ReplaceAll(txtDomain, "_", "")
+			// Include service, protocol, and target (server) in the TXT domain
+			service := strings.TrimPrefix(record.SrvService, "_")
+			protocol := strings.TrimPrefix(record.SrvProtocol, "_")
+			txtDomain = service + "." + protocol + "." + record.SrvTarget + "." + record.Domain
 		}
 
 		records = append(records, DNSRecord{
