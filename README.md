@@ -154,8 +154,8 @@ Feel free to try it, enhance it and open issues if you find bugs or errors
 
 ## Support
 
-<a href="https://www.buymeacoffee.com/app/gianmarcomameli"><img align="center" src="https://cdn.simpleicons.org/buymeacoffee" alt="buymeacoffe" height="32" /></a>
-<a href="https://ko-fi.com/gianmarcomameli"><img align="center" src="https://cdn.simpleicons.org/kofi" alt="kofi" height="32"/></a>
+<p align="left"><a href="https://www.buymeacoffee.com/gianmarcomameli"><img align="center" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="40" width="160" alt="buymeacoffee" /></a>
+<a href="https://ko-fi.com/gianmarcomameli"> <img align="center" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" height="40" width="160" alt="ko-fi" /></a>
 <a href="https://earnapp.com/i/836i1zj"> <img align="center" src="https://raw.githubusercontent.com/gianmarco-mameli/gianmarco-mameli/refs/heads/main/img/earnapp.svg" height="40" width="40" alt="earnapp" /></a>
 <a href="https://pawns.app/?r=693053"> <img align="center" src="https://raw.githubusercontent.com/gianmarco-mameli/gianmarco-mameli/refs/heads/main/img/pawnsapp.svg" height="40" width="40" alt="pawnsapp" /></a>
 <a href="https://join.honeygain.com/GNAMM2ED95"> <img align="center" src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/honeygain.png" height="40" width="40" alt="honeygain" /></a>
