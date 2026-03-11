@@ -1,6 +1,6 @@
 # unifi-external-dns
 
-![Contributors](https://img.shields.io/github/contributors/gianmarco-mameli/unifi-external-dns?style=plastic) ![Forks](https://img.shields.io/github/forks/gianmarco-mameli/unifi-external-dns?style=plastic) ![Stargazers](https://img.shields.io/github/stars/gianmarco-mameli/unifi-external-dns?style=plastic) ![Issues](https://img.shields.io/github/issues/gianmarco-mameli/unifi-external-dns?style=plastic) ![License](https://img.shields.io/github/license/gianmarco-mameli/unifi-external-dnsstyle=plastic)
+![Contributors](https://img.shields.io/github/contributors/gianmarco-mameli/unifi-external-dns?style=plastic) ![Forks](https://img.shields.io/github/forks/gianmarco-mameli/unifi-external-dns?style=plastic) ![Stargazers](https://img.shields.io/github/stars/gianmarco-mameli/unifi-external-dns?style=plastic) ![Issues](https://img.shields.io/github/issues/gianmarco-mameli/unifi-external-dns?style=plastic) ![License](https://img.shields.io/github/license/gianmarco-mameli/unifi-external-dns?style=plastic)
 
 In my home K3S clusters, I'm already using this great projects to sync custom DNS Policies to a Unifi Dream Machine PRO SE router:
 
