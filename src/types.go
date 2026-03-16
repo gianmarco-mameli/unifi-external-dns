@@ -30,7 +30,7 @@ type DNSRecord struct {
 
 func (r DNSRecord) Key() string {
 	if r.Type == recordTypeSRV {
-		return r.Type + "|" + r.SrvService + "." + r.SrvProtocol + "." + r.Domain
+		return r.Type + "|" + r.SrvService + "." + r.SrvProtocol + "." + r.Domain + "|" + r.SrvTarget
 	}
 	return r.Type + "|" + r.Domain
 }
