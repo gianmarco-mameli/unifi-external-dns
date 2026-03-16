@@ -32,7 +32,7 @@ func syncOnce(ctx context.Context, cfg Config, dockerRecords []DNSRecord, yamlRe
 	for _, policy := range policies {
 		key := policy.Type + "|" + policy.Domain
 		if policy.Type == recordTypeSRV {
-			key = policy.Type + "|" + policy.Service + "." + policy.Protocol + "." + policy.Domain
+			key = policy.Type + "|" + policy.Service + "." + policy.Protocol + "." + policy.Domain + "|" + policy.ServerDomain
 		}
 		existing[key] = policy
 	}
