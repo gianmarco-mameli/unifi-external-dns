@@ -1,8 +1,7 @@
-FROM --platform=$BUILDPLATFORM golang:1.24-alpine AS build
+FROM --platform=$BUILDPLATFORM golang:1.27.4-alpine AS build
 
 ARG TARGETOS
 ARG TARGETARCH
-ARG VERSION=dev
 
 WORKDIR /app
 
@@ -16,7 +15,7 @@ RUN CGO_ENABLED=0 GOOS=${TARGETOS:-linux} GOARCH=${TARGETARCH:-amd64} go build -
 FROM --platform=$BUILDPLATFORM buildpack-deps:noble-curl AS chisel
 
 ARG BUILDPLATFORM
-ARG CHISEL_VERSION=1.4.0
+ARG CHISEL_VERSION=1.5.1
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c", "-l"]
 
@@ -42,7 +41,7 @@ RUN case "${BUILDPLATFORM}" in \
     && curl -fSL --output chisel_v${CHISEL_VERSION}_linux_${ARCH}.tar.gz.sha384 https://github.com/canonical/chisel/releases/download/v${CHISEL_VERSION}/chisel_v${CHISEL_VERSION}_linux_${ARCH}.tar.gz.sha384 \
     && sha384sum -c chisel_v${CHISEL_VERSION}_linux_${ARCH}.tar.gz.sha384 \
     && tar -xzf chisel_v${CHISEL_VERSION}_linux_${ARCH}.tar.gz -C /usr/bin/ chisel \
-    && curl -fSL --output /usr/bin/chisel-wrapper https://raw.githubusercontent.com/canonical/rocks-toolbox/v1.2.0/chisel-wrapper \
+    && curl -fSL --output /usr/bin/chisel-wrapper https://raw.githubusercontent.com/canonical/rocks-toolbox/v1.2.1/chisel-wrapper \
     && chmod 755 /usr/bin/chisel-wrapper
 
 RUN groupadd \
